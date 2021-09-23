@@ -10,9 +10,9 @@ const timeout = [
 
 const script = [
     ["como estas?", "dime"],
+    ["de donde?", "eres de españa?"],
     ["hemos hablado antes?", "que tal?"],
-    ["lo siento, menudo dia he tenido", "no es un poco tarde?"],
-    "de donde?",
+    ["lo siento, menudo dia he tenido", "no es un poco tarde para ti?"],
     "edad?",
     "no se... dime tu",
     "como eres, fisicamente me refiero",
@@ -49,12 +49,15 @@ const answers = {
         'donde': [
             "de madrid, y tu?"
             ],
+        'adios': [
+            "hasta pronto, majo", "chau"
+            ],
         'skype': [
             'mi cuenta de skype... prefiero no dartela aun, tu tienes?',
             'y para que quieres skype',
             ],
         'hola': [
-            'hola, holita, hola',
+            'holi',
             'saludos!',
         ]
 }
@@ -94,13 +97,13 @@ class Conversation {
             this.client.say(this.name, reply)
         }, 5000 + Math.random() * 8000)
 
-        if (this.timeoutCount < 5) {
+        if (this.timeoutCount < 2) {
             this.timeout = setTimeout(() => {
                 let reply = pickOne(timeout)
                 this.timeoutCount ++
                 console.log(`ME -> ${this.name}: ${reply}`)
                 this.client.say(this.name, reply)
-            }, 30000)
+            }, 120000)
         }
     }
 
