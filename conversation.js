@@ -5,6 +5,7 @@ const pickOne = function (arr) {
 const timeout = [
     "no me dices nada?",
     "sigues ahi?",
+    "que muermo",
     "hola?"
 ]
 
@@ -38,6 +39,12 @@ const answers = {
         'jaja': [
             "tienes una risa bonita",
             "me caes bien, me gusta que me hagan reir",
+            ],
+        'años': [
+            "41", "32", "35 y medio",
+            ],
+        'edad': [
+            "41", "33", "37 y medio",
             ],
         'donde': [
             "de madrid, y tu?"
