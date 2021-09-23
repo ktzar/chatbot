@@ -32,13 +32,6 @@ const script = [
 ]
 
 const answers = {
-        '?': [
-            "menuda pregunta",
-            "pues no se si contestar",
-            "respondeme tu primero, jiji",
-            "no lo se",
-            "tu que crees?",
-            ],
         'follar': [
             "follar? un poco rapido vas tu!"
             ],
@@ -59,6 +52,13 @@ const answers = {
         'hola': [
             'holi',
             'saludos!',
+        '?': [
+            "menuda pregunta",
+            "pues no se si contestar",
+            "respondeme tu primero, jiji",
+            "no lo se",
+            "tu que crees?",
+            ],
         ]
 }
 
@@ -78,7 +78,7 @@ class Conversation {
         clearTimeout(this.timeout)
         let reply = false
         for (let cue in answers) {
-            if (message.includes(cue)) {
+            if (message.toLowerCase().includes(cue)) {
                 reply = pickOne(answers[cue])
                 break
             }
