@@ -52,6 +52,7 @@ const answers = {
         'hola': [
             'holi',
             'saludos!',
+            ]
         '?': [
             "menuda pregunta",
             "pues no se si contestar",
@@ -59,7 +60,6 @@ const answers = {
             "no lo se",
             "tu que crees?",
             ],
-        ]
 }
 
 
