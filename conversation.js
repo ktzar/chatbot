@@ -61,23 +61,35 @@ class SubConversation extends EventEmitter {
 }
 
 const intro = {
-    exitCue: /hdsfhdslfhsd/,
+    exitCue: /donde\ eres/,
     exitSentence: "ok, soy de madrid",
     sentences: [
-        ["como estas?", "te conozco?|dime", "jo|cuantos privados!"],
+        ["como estas?", "te conozco?|dime", "perdona, tengo muchos privados|cuanta gente", "jo|cuantos privados!"],
         ["de donde?", "eres de españa?"],
+        ["soy nueva", "es la primera vez que entro a este chat"],
     ],
     answers: {
         'bot': [
             'el que parece un bot eres tú, con esas preguntas...',
             ],
+        'noches': [
+            'buenas noches a ti tambien',
+            'una noche un poco solitaria|hay mucho pesado suelto',
+            ],
+        'nick': [
+            'te gusta?|se me ocurrio mirandome al espejo',
+            'a mi tu nick tambien me hace gracia :-)'
+            ],
+        'sexo': [
+            'un poco deprisa vas tu, no?',
+            ],
         'hola': [
             'holi',
-            'hola!',
+            'hola!|que cuentas?',
             ],
         '?': [
             "hoy un poco sola...",
-            "jaja, también quiero yo|saber cosas de ti",
+            "jaja|también quiero yo|saber cosas de ti",
             "te puedo preguntar?|es facil! jajaja",
             "no se que decirte, qué buscas?",
             ],
@@ -127,7 +139,7 @@ const telegramSuccess = {
     ],
     answers: {
         'bot': [
-            'si, mi creador te manda saludos atentos',
+            'si, mi creador te manda saludos cordiales',
             ],
     } 
 }
