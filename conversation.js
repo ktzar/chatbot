@@ -59,7 +59,7 @@ const answers = {
         'hola': [
             'holi',
             'saludos!',
-            ]
+            ],
         '?': [
             "menuda pregunta",
             "pues no se si contestar",
