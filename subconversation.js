@@ -1,12 +1,16 @@
 const EventEmitter = require('events');
 
 const pickOne = function (arr) {
-    return arr[Math.floor(Math.random()*arr.length)]
+    if (!arr || !arr.length) {
+        return 'no se...'
+    }
+    return arr.splice(Math.floor(Math.random()*arr.length), 1)[0]
 }
 
 class SubConversation extends EventEmitter {
-    constructor({exitCue, exitSentence, sentences, answers}) {
+    constructor({exitCue, exitSentence, sentences, answers, name}) {
         super()
+        this.name = name
         this.exitCue = exitCue
         this.exitSentence = exitSentence
         this.answers = answers
@@ -14,11 +18,13 @@ class SubConversation extends EventEmitter {
         this.count = 0
         this.successNextSubConv = null
         this.failNextSubConv = null
+        this.timeout = null
     }
 
     say(message) {
         const delay = parseInt(Math.random() * 5000 + 5000)
-        setTimeout(() => {
+        clearTimeout(this.timeout)
+        this.timeout = setTimeout(() => {
             this.emit('reply', message)
         }, delay + 300 * message.length)
     }

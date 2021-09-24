@@ -1,4 +1,5 @@
 module.exports = {
+    name: "Telegram Success",
     exitCue: /dshfkdshfls/,
     exitSentence: "un besito de tu amiga bot",
     sentences: [

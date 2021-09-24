@@ -1,10 +1,14 @@
 module.exports = {
+    name: "Telegram Retrieval",
     exitCue: /\@[a-z0-9]*/,
     exitSentence: "gracias, ahora te añado|sabes? me caes bien",
     sentences: [
         "me gustaria oir tu voz",
         ["tienes telegram o skype?", "ayer me instale telegram|esta super bien"],
         ["bueno, y qué propones entonces?", "vaya"],
+        ["venga, la verdad es que me apetece", ":-)"],
+        ["cual es tu usuario, y te añado"],
+        ["dale..."],
     ],
     answers: {
         'telegram': [

@@ -1,5 +1,6 @@
 
 module.exports = {
+    name: "Age retrieval",
     exitCue: /\d{2}/,
     exitSentence: "yo tengo 34",
     sentences: [

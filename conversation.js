@@ -61,7 +61,7 @@ class Conversation {
             if (this.currentSubConv.failNextSubConv) {
                 this.setNewSubConv(this.currentSubConv.failNextSubConv)
             } else {
-                console.log(">>> End of conversation" + this.name)
+                console.log(">>> End of conversation for " + this.name)
             }
         })
     }

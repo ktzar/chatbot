@@ -4,6 +4,7 @@
 
 
 module.exports = {
+    name: "Borde",
     exitCue: /joder|mierda/,
     exitSentence: "hasta nunca, déjame en paz",
     sentences: [
@@ -11,6 +12,7 @@ module.exports = {
         "qué cojones te pasa?",
         "eres un poco tonto, no?",
         "te mola perder el tiempo en el chat?",
+        "disculpa... he estado un poco borde|me perdonas",
     ],
     answers: {
         'puta': [
