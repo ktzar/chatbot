@@ -11,44 +11,6 @@ const timeout = [
     "hola?"
 ]
 
-const answers = {
-        'follar': [
-            "follar? un poco rapido vas tu!"
-            ],
-        'jaja': [
-            "tienes una risa bonita",
-            "me caes bien, me gusta que me hagan reir",
-            ],
-        'años': [
-            "41", "32", "35 y medio",
-            ],
-        'edad': [
-            "41", "33", "37 y medio",
-            ],
-        'donde': [
-            "de madrid, y tu?"
-            ],
-        'adios': [
-            "hasta pronto, majo", "chau"
-            ],
-        'skype': [
-            'mi cuenta de skype... prefiero no dartela aun, tu tienes?',
-            'y para que quieres skype',
-            ],
-        'hola': [
-            'holi',
-            'saludos!',
-            ],
-        '?': [
-            "menuda pregunta",
-            "pues no se si contestar",
-            "respondeme tu primero, jiji",
-            "no lo se",
-            "tu que crees?",
-            ],
-}
-
-
 class SubConversation extends EventEmitter {
     constructor(exitCue, exitSentence, sentences, answers) {
         super()
@@ -63,9 +25,12 @@ class SubConversation extends EventEmitter {
 
     incoming(message) {
         let reply = false
+        const delay = parseInt(Math.random() * 5000 + 5000)
         if (this.exitCue.test(message)) {
-            this.emit('reply', this.exitSentence)
-            this.emit('success')
+            setTimeout(() => {
+                this.emit('reply', this.exitSentence)
+                this.emit('success')
+            }, delay + 5000)
             return
         }
         for (let cue in this.answers) {
@@ -84,16 +49,22 @@ class SubConversation extends EventEmitter {
                 this.emit('fail')
             }
         }
-        this.emit('reply', reply)
+        const replies = reply.split('|')
+        replies.forEach((rep, index) => {
+            setTimeout(() => {
+                this.emit('reply', replies[index])
+            }, delay + index * 2000)
+        })
+
     }
 
 }
 
 const intro = new SubConversation(
     /hdsfhdslfhsd/,
-    "ok, soy de málaga",
+    "ok, soy de madrid",
     [
-        ["como estas?", "dime"],
+        ["como estas?", "te conozco?|dime", "jo|cuantos privados!"],
         ["de donde?", "eres de españa?"],
     ],
     {
@@ -105,9 +76,10 @@ const intro = new SubConversation(
             'hola!',
             ],
         '?': [
-            "a ver, quiero yo tambien saber cosas de ti",
-            "te voy a hacer una pregunta yo",
-            "a ver...",
+            "hoy un poco sola...",
+            "jaja, también quiero yo|saber cosas de ti",
+            "te voy a hacer|una pregunta yo",
+            "no se que decirte, qué buscas?",
             ],
     } 
 )
@@ -123,15 +95,15 @@ const ageRetrieval = new SubConversation(
     ],
     {
         'bot': [
-            'el que parece un bot eres tú, con esas preguntas...',
+            'el que parece un bot eres tú |con esas preguntas...',
             ],
         'hola': [
             'holi',
             'saludos!',
             ],
         '?': [
-            "yo tengo 33",
-            "yo tengo más de 35 y menos de 40 ;-)",
+            "bueno... te digo mi edad",
+            "te digo los que tengo, pero no te asustes!",
         ],
     } 
 )
@@ -140,7 +112,7 @@ const telegramSuccess = new SubConversation(
     /dshfkdshfls/,
     "un besito de tu amiga bot",
     [
-        "vale, creo que te voy a dar mi telegram, te lo has ganado",
+        "vale, creo que te voy a dar mi telegram|te lo has ganado",
         "estás listo? te voy a añadir",
         [
             "tienes ganas de subir el tono?",
@@ -165,25 +137,25 @@ const telegramRetrieval = new SubConversation(
     "sabes? me caes bien",
     [
         "me gustaria oir tu voz",
-        ["tienes telegram o skype?", "ayer me instale telegram, esta super bien"],
+        ["tienes telegram o skype?", "ayer me instale telegram|esta super bien"],
         ["bueno, y qué propones entonces?", "vaya"],
     ],
     {
         'telegram': [
             'ok, dime tu usuario, con la @',
-            'vale, dame tu usuario con la @',
+            'vale, dame tu usuario|con la @',
             ],
         'skype': [
-            'prefiero telegram, mi usuario es gatitaGallega',
-            'skype no me gusta nada, tienes telegram?',
+            'prefiero telegram|mi usuario es gatitaGallega|pon el simbolo ese @ antes',
+            'skype no me gusta nada|tienes telegram?',
             ],
         'usuario': [
             'te paso mi usuario de telegram?',
             'quieres buscarme en telegram o skype?',
             ],
         '?': [
-            "antes de contestar, me gustaría comprobar cómo eres",
-            "quiero primero que nos oigamos, para ver que eres real",
+            "antes de contestar|me gustaría comprobar cómo eres",
+            "quiero primero que nos oigamos|para ver que eres real|vale?",
         ],
     } 
 )
@@ -257,7 +229,7 @@ class Conversation {
 
     incoming(message) {
         this.currentSubConv.incoming(message)
-        console.log(this.name+ ' > ' + message);
+        console.log(this.name + ' > ' + message);
         clearTimeout(this.timeout)
 
         if (this.timeoutCount < 2) {
@@ -266,7 +238,7 @@ class Conversation {
                 this.timeoutCount ++
                 console.log(`${this.name} < ${reply}`)
                 this.client.say(this.name, reply)
-            }, 12000)
+            }, 120000)
         }
     }
 
