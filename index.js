@@ -1,14 +1,16 @@
+require('dotenv').config()
+
 const irc = require('irc')
 const Conversation = require('./conversation')
 
 const conversations = new Map()
 
-const IRCW3 = 'irc.w3.org'
-const HISPANO = 'irc.irc-hispano.org'
-const ZONA = 'irc.chatzona.org'
+const { SERVER, NICK, CHANNELS}  = process.env
 
-const client = new irc.Client(ZONA, 'mr_robot', {
-    channels: ['#amistad']
+console.log({SERVER, NICK, CHANNELS})
+
+const client = new irc.Client(SERVER, NICK, {
+    channels: CHANNELS.split(',')
 })
 
 client.addListener('message', (from, to, message) => {

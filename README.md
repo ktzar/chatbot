@@ -6,12 +6,11 @@ At the moment it's very simple and only includes a few variations and randomised
 A few servers are included in the index.js file. Eventually this'll come from a config file or env vars.
 
 ## How to run:
-Check out this repo and run:
+Check out this repo. Copy `.env_example` to `.env`, edit the parameters, and run:
 ```sh
 npm i
 node index
 ```
 
 ## TODO
-- .Env file to specify server, nick, and channels to join
 - Conversation tree with cues to leave a specific node and go to the next one.
