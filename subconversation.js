@@ -1,10 +1,13 @@
 const EventEmitter = require('events');
 
 const pickOne = function (arr) {
-    if (!arr || !arr.length) {
-        return 'no se...'
+    if (typeof arr === 'string') {
+        return arr
     }
-    return arr.splice(Math.floor(Math.random()*arr.length), 1)[0]
+    if (Array.isArray(arr)) {
+        return arr.splice(Math.floor(Math.random()*arr.length), 1)[0]
+    }
+    return 'no se...'
 }
 
 class SubConversation extends EventEmitter {
