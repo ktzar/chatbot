@@ -49,25 +49,27 @@ class Conversation {
     }
 
     setNewSubConv(subConv) {
+        const name = this.name
+        const subConvName = subConv.name
         this.currentSubConv = subConv
         this.currentSubConv.on('reply', reply => {
             console.log(`${this.name} < ${reply}`)
             this.client.say(this.name, reply)
         })
         this.currentSubConv.on('success', () => {
-            console.log(```>>> Success for ${this.name} on ${subConv.name}```)
+            console.log('>>> Success for ' + name)
             if (this.currentSubConv.successNextSubConv) {
                 this.setNewSubConv(this.currentSubConv.successNextSubConv)
             } else {
-                console.log(```>>> Endgame for ${this.name} on ${subConv.name}```)
+                console.log('>>> Endgame for ' + name + ' on ' + subConvName)
             }
         })
         this.currentSubConv.on('fail', () => {
+            console.log('>>> Fail for ' + name)
             if (this.currentSubConv.failNextSubConv) {
-                console.log(```>>> Fail for ${this.name} on ${subConv.name}```)
                 this.setNewSubConv(this.currentSubConv.failNextSubConv)
             } else {
-                console.log(```>>> Endgame for ${this.name} on ${subConv.name}```)
+                console.log('>>> Endgame for ' + name + ' on ' + subConvName)
             }
         })
     }

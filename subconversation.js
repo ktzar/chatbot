@@ -47,7 +47,7 @@ class SubConversation extends EventEmitter {
 
     incoming(message) {
         let reply = ''
-        message = message.normalize("NFD").toLowerCase()
+        message = message.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
         if (this.exitCue.test(message)) {
             this.emit('success')
             reply = this.exitSentence
