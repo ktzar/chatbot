@@ -1,5 +1,10 @@
 require('dotenv').config()
 
+process.on('uncaughtException', function (err) {
+  console.error(err.stack);
+  console.log("Node NOT Exiting...");
+});
+
 const irc = require('irc')
 const Conversation = require('./conversation')
 

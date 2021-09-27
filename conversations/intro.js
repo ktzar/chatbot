@@ -12,8 +12,10 @@ module.exports = {
     answers: {
         'bot': 'jaja, tu si que pareces un bot|con esas preguntas',
         'charlar': 'y que que quieres hablar, {nick}?|estoy un poco sola {nick}',
+        'llamo': 'encantada {nick}|estas solito?',
         'sola': 'estoy un poco sola {nick}',
         'solita': 'si solita, tu tambieen {nick}?',
+        ' put': 'eso se lo llamas a tu madre, vale? a ',
         'mujer?': [
             'si, soy chica',
             'si, y tu?',

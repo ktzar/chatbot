@@ -55,19 +55,19 @@ class Conversation {
             this.client.say(this.name, reply)
         })
         this.currentSubConv.on('success', () => {
-            console.log(```>>> Success for ${this.name} on ${this.currentSubConv.name}```)
+            console.log(```>>> Success for ${this.name} on ${subConv.name}```)
             if (this.currentSubConv.successNextSubConv) {
                 this.setNewSubConv(this.currentSubConv.successNextSubConv)
             } else {
-                console.log(```>>> Endgame for ${this.name} on ${this.currentSubConv.name}```)
+                console.log(```>>> Endgame for ${this.name} on ${subConv.name}```)
             }
         })
         this.currentSubConv.on('fail', () => {
             if (this.currentSubConv.failNextSubConv) {
-                console.log(```>>> Fail for ${this.name} on ${this.currentSubConv.name}```)
+                console.log(```>>> Fail for ${this.name} on ${subConv.name}```)
                 this.setNewSubConv(this.currentSubConv.failNextSubConv)
             } else {
-                console.log(```>>> Endgame for ${this.name} on ${this.currentSubConv.name}```)
+                console.log(```>>> Endgame for ${this.name} on ${subConv.name}```)
             }
         })
     }
