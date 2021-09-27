@@ -2,12 +2,12 @@
 module.exports = {
     name: "Age retrieval",
     exitCue: /\d{2}/,
-    exitSentence: "mmm yo tengo 34",
+    exitSentence: "mmm yo tengo 44",
     sentences: [
-        ["cuantos años tienes?", "edad?"],
+        ["tienes {age}?", "edad?"],
         ["eres maduro?", "primero dime tu edad"],
-        "pero cómo de mayor eres?",
-        "no se que quieres decir"
+        "pero cómo de mayor eres, {age}?",
+        "vaya, yo tengo más de 40"
     ],
     answers: {
         'bot': [

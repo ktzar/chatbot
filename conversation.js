@@ -27,11 +27,11 @@ class Conversation {
         this.timeout
         this.timeoutCount = 0
 
-        this.intro = new SubConversation({...intro})
-        this.ageRetrieval = new SubConversation({...ageRetrieval})
-        this.telegramRetrieval = new SubConversation({...telegramRetrieval})
-        this.telegramSuccess = new SubConversation({...telegramSuccess})
-        this.borde = new SubConversation({...borde})
+        this.intro = new SubConversation({...intro, nick: name})
+        this.ageRetrieval = new SubConversation({...ageRetrieval, nick: name})
+        this.telegramRetrieval = new SubConversation({...telegramRetrieval, nick: name})
+        this.telegramSuccess = new SubConversation({...telegramSuccess, nick: name})
+        this.borde = new SubConversation({...borde, nick: name})
 
         this.intro.successNextSubConv = this.ageRetrieval
         this.intro.failNextSubConv = this.ageRetrieval

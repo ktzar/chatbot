@@ -12,8 +12,19 @@ const pickOne = function (arr) {
 }
 
 class SubConversation extends EventEmitter {
-    constructor({exitCue, exitSentence, sentences, answers, name}) {
+    constructor({exitCue, exitSentence, sentences, answers, name, nick}) {
         super()
+        try {
+            this.nick = nick.match(/[A-Za-z]{4,}/)[0]
+        } catch(e) {
+            this.nick = nick
+        }
+        try {
+            this.age = nick.match(/\d{2}/)[0]
+        }catch(e) {
+            this.age = 'mas de 18'
+        }
+
         this.name = name
         this.exitCue = exitCue
         this.exitSentence = exitSentence
@@ -26,6 +37,8 @@ class SubConversation extends EventEmitter {
     }
 
     say(message) {
+        message = message.replace('{age}', this.age).replace('{nick}', this.nick)
+
         const delay = parseInt(Math.random() * (delayUnit * 50) + (delayUnit*50))
         this.timeout = setTimeout(() => {
             this.emit('reply', message)
