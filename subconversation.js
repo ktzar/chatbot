@@ -15,7 +15,7 @@ class SubConversation extends EventEmitter {
     constructor({exitCue, exitSentence, sentences, answers, name, nick}) {
         super()
         try {
-            this.nick = nick.match(/[A-Za-z]{4,}/)[0]
+            this.nick = nick.match(/[A-Za-z]{4,}/)[0].toLowerCase()
         } catch(e) {
             this.nick = nick
         }
