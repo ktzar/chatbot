@@ -47,16 +47,17 @@ class SubConversation extends EventEmitter {
 
     incoming(message) {
         let reply = ''
+        message = message.normalize("NFD").toLowerCase()
         if (this.exitCue.test(message)) {
             this.emit('success')
-            this.say(this.exitSentence)
-            return
-        }
-        for (let cue in this.answers) {
-            if (message.toLowerCase().includes(cue)) {
-                reply = pickOne(this.answers[cue])
-                delete this.answers[cue]
-                break
+            reply = this.exitSentence
+        } else {
+            for (let cue in this.answers) {
+                if (message.includes(cue)) {
+                    reply = pickOne(this.answers[cue])
+                    delete this.answers[cue]
+                    break
+                }
             }
         }
         if (!reply) {

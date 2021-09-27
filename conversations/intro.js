@@ -4,14 +4,16 @@ module.exports = {
     exitCue: /donde\ eres|zona|madrid|barcelona|valencia|sevilla/,
     exitSentence: "ok, vivo en madrid, por sol",
     sentences: [
-        ["como estas {nick}?", "te conozco?|dime", "perdona si tardo|tengo muchos privados!", "jo|cuantos privados!"],
-        ["de donde?", "yo en madrid, tu cerca?"],
-        ["soy nueva", "es la primera vez que entro a este chat"],
+        ["como estas {nick}?", "te conozco?|dime", "no quiero perder tiempo|que buscas?", "me mandais muchos mensajes!"],
+        ["de donde?", "yo en madrid, te pilla bien?"],
+        ["busco charla inteligente", "no entro mucho a este chat"],
         ["qué me dices de ti?", "estas en casa?"],
     ],
     answers: {
         'bot': 'jaja, tu si que pareces un bot|con esas preguntas',
         'charlar': 'y que que quieres hablar, {nick}?|estoy un poco sola {nick}',
+        'sola': 'estoy un poco sola {nick}',
+        'solita': 'si solita, tu tambieen {nick}?',
         'mujer?': [
             'si, soy chica',
             'si, y tu?',
@@ -33,6 +35,7 @@ module.exports = {
             ],
         'sexo': [
             'un poco deprisa vas tu, no?',
+            'que lanzado!',
             ],
         'toc': [
             'quien es? :-)',

@@ -42,6 +42,9 @@ class Conversation {
         this.telegramRetrieval.successNextSubConv = this.telegramSuccess
         this.telegramRetrieval.failNextSubConv = this.borde
 
+        this.telegramSuccess.successNextSubConv = this.borde
+        this.telegramSuccess.failNextSubConv = this.borde
+
         this.setNewSubConv(this.intro)
     }
 
@@ -52,17 +55,19 @@ class Conversation {
             this.client.say(this.name, reply)
         })
         this.currentSubConv.on('success', () => {
+            console.log(```>>> Success for ${this.name} on ${this.currentSubConv.name}```)
             if (this.currentSubConv.successNextSubConv) {
                 this.setNewSubConv(this.currentSubConv.successNextSubConv)
             } else {
-                console.log(">>> End of conversation for " + this.name)
+                console.log(```>>> Endgame for ${this.name} on ${this.currentSubConv.name}```)
             }
         })
         this.currentSubConv.on('fail', () => {
             if (this.currentSubConv.failNextSubConv) {
+                console.log(```>>> Fail for ${this.name} on ${this.currentSubConv.name}```)
                 this.setNewSubConv(this.currentSubConv.failNextSubConv)
             } else {
-                console.log(">>> End of conversation for " + this.name)
+                console.log(```>>> Endgame for ${this.name} on ${this.currentSubConv.name}```)
             }
         })
     }
