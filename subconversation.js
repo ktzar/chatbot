@@ -1,4 +1,5 @@
 const EventEmitter = require('events');
+const delayUnit = 100
 
 const pickOne = function (arr) {
     if (typeof arr === 'string') {
@@ -25,11 +26,10 @@ class SubConversation extends EventEmitter {
     }
 
     say(message) {
-        const delay = parseInt(Math.random() * 5000 + 5000)
-        clearTimeout(this.timeout)
+        const delay = parseInt(Math.random() * (delayUnit * 50) + (delayUnit*50))
         this.timeout = setTimeout(() => {
             this.emit('reply', message)
-        }, delay + 300 * message.length)
+        }, delay + delayUnit * 3 * message.length)
     }
 
     incoming(message) {
@@ -42,6 +42,7 @@ class SubConversation extends EventEmitter {
         for (let cue in this.answers) {
             if (message.toLowerCase().includes(cue)) {
                 reply = pickOne(this.answers[cue])
+                delete this.answers[cue]
                 break
             }
         }
@@ -58,8 +59,8 @@ class SubConversation extends EventEmitter {
         const replies = reply ? reply.split('|') : ["no se..."]
         replies.forEach((rep, index) => {
             setTimeout(() => {
-                this.say(replies[index])
-            }, index * 8000)
+                this.say(rep)
+            }, index * 80 * delayUnit)
         })
 
     }

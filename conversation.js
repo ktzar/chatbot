@@ -35,6 +35,7 @@ class Conversation {
 
         this.intro.successNextSubConv = this.ageRetrieval
         this.intro.failNextSubConv = this.ageRetrieval
+
         this.ageRetrieval.successNextSubConv = this.telegramRetrieval
         this.ageRetrieval.failNextSubConv = this.telegramRetrieval
 
