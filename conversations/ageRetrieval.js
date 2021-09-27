@@ -7,7 +7,6 @@ module.exports = {
         ["tienes {age}?", "edad?"],
         ["eres maduro?", "primero dime tu edad"],
         "pero cómo de mayor eres, {age}?",
-        "vaya, yo tengo más de 40"
     ],
     answers: {
         'bot': [
@@ -18,8 +17,8 @@ module.exports = {
             'saludos!',
             ],
         '?': [
-            "bueno... te digo mi edad|despues de ti, jiji",
-            "te digo los que tengo, pero no te asustes!|despues de ti",
+            "bueno...|te digo mi edad, jiji",
+            "te digo los que tengo|pero no te asustes!",
         ],
     } 
 }

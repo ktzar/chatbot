@@ -11,9 +11,10 @@ const pickOne = function (arr) {
 }
 
 const timeout = [
-    "no me dices nada?",
-    "sigues ahi?",
-    "que muermo",
+    "no sé para qué mierdas me abres si luego no hablas...",
+    "hoooola???",
+    "hay alguen ahi?",
+    "menudo peñazo",
     "hola?"
 ]
 

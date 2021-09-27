@@ -9,7 +9,7 @@ module.exports = {
         ["venga, la verdad es que me apetece", ":-)"],
         ["cual es tu usuario, y te añado"],
         ["si no tienes telegram, dame tu telefono para whatsapp", "y por whatsapp, {nick}?"],
-        ["dale..."],
+        ["anda, cariño"],
     ],
     answers: {
         'telegram': [
@@ -18,7 +18,7 @@ module.exports = {
             ],
         'skype': [
             'prefiero telegram|mi usuario es gatitaGallega|pon el simbolo ese @ antes',
-            'skype no me gusta nada|tienes telegram?',
+            'skype no lo tengo en el movil|tienes telegram?',
             ],
         'usuario': [
             'te paso mi usuario de telegram?',
