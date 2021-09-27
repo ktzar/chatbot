@@ -6,7 +6,7 @@ const pickOne = function (arr) {
         return arr
     }
     if (Array.isArray(arr)) {
-        return arr.splice(Math.floor(Math.random()*arr.length), 1)[0]
+        return arr[Math.floor(Math.random()*arr.length)]
     }
     return 'no se...'
 }
