@@ -22,7 +22,7 @@ class SubConversation extends EventEmitter {
         try {
             this.age = nick.match(/\d{2}/)[0]
         }catch(e) {
-            this.age = 'mas de 18'
+            this.age = 'mas de 20'
         }
 
         this.name = name
@@ -46,7 +46,7 @@ class SubConversation extends EventEmitter {
     }
 
     incoming(message) {
-        let reply = ''
+        let reply = false
         message = message.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
         if (this.exitCue.test(message)) {
             this.emit('success')
@@ -67,6 +67,7 @@ class SubConversation extends EventEmitter {
             }
             this.count++
             if (this.count >= this.sentences.length) {
+                reply = this.failSentence || this.exitSentence
                 this.emit('fail')
             }
         }

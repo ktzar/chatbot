@@ -2,10 +2,11 @@
 module.exports = {
     name: "Age retrieval",
     exitCue: /\d{2}/,
-    exitSentence: "mmm yo tengo 44",
+    exitSentence: "mmm yo tengo 38",
+    failSentence: "no me dices tu edad? yo tengo 38",
     sentences: [
         ["tienes {age}?", "edad?"],
-        ["me van maduros, pero tambien jovencitos", "dime tu edad"],
+        ["me van maduros, pero tambien jovencitos|jiji", "dime tu edad"],
         "pero cuántos tienes, {age}?",
     ],
     answers: {
