@@ -12,6 +12,7 @@ module.exports = {
         ["anda, cariño...|dime tu usuario"],
     ],
     answers: {
+        'busco': 'tienes que ir a añadir usuaria',
         'telegram': [
             'ok, dime tu usuario, con la @',
             'vale, dame tu usuario|con la @',

@@ -46,6 +46,7 @@ class SubConversation extends EventEmitter {
     }
 
     incoming(message) {
+        clearTimeout(this.timeout)
         let reply = false
         message = message.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
         if (this.exitCue.test(message)) {
@@ -73,7 +74,7 @@ class SubConversation extends EventEmitter {
         }
         const replies = reply ? reply.split('|') : ["no se..."]
         replies.forEach((rep, index) => {
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
                 this.say(rep)
             }, index * 80 * delayUnit)
         })

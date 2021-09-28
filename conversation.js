@@ -61,7 +61,7 @@ class Conversation {
             this.client.say(this.name, reply)
         })
         this.currentSubConv.on('success', () => {
-            console.log('>>> Success for ' + name)
+            console.log('   >>> Success for ' + name + " on " + subConvName)
             if (this.currentSubConv.successNextSubConv) {
                 this.setNewSubConv(this.currentSubConv.successNextSubConv)
             } else {
@@ -69,7 +69,7 @@ class Conversation {
             }
         })
         this.currentSubConv.on('fail', () => {
-            console.log('>>> Fail for ' + name)
+            console.log('   >>> Fail for ' + name + " on " + subConvName)
             if (this.currentSubConv.failNextSubConv) {
                 this.setNewSubConv(this.currentSubConv.failNextSubConv)
             } else {

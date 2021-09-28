@@ -5,11 +5,18 @@ module.exports = {
     exitSentence: "yo vivo en madrid, centrica",
     failSentence: "ok|que más me dices de ti?",
     sentences: [
-        ["qué me dices de ti?", "estas en casa?", "eres hombre?", "eres amable?"],
+        ["qué me dices de ti?", "estas en casa?", "que me cuentas?", "me mola tu nick...", "eres amable?"],
         ["como estas {nick}?", "como estas?|eres majo?", "que buscas?|yo hablar sin limites", "muchos mensajes!"],
         ["de donde?", "yo en madrid|que buscas, ciber o real?"],
     ],
     answers: {
+        'hola': [
+            'hola amor',
+            'hola caracola',
+            'hola bebe',
+            'hola peque',
+            'hola cariño',
+            ],
         'bot': 'jaja, tu si que pareces un bot|con esas preguntas',
         'charlar': 'y que que quieres hablar, {nick}?|estoy un poco sola {nick}',
         'llamo': 'encantada {nick}|estas solito?',
@@ -54,13 +61,6 @@ module.exports = {
             ],
         'toc': [
             'quien es? :-)',
-            ],
-        'hola': [
-            'hola amor',
-            'hola caracola',
-            'hola bebe',
-            'hola peque',
-            'hola cariño',
             ],
         'mo est': 'hoy un poco solita...|me haces compañia?',
         '?': [
