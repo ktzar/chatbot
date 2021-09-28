@@ -56,7 +56,7 @@ class SubConversation extends EventEmitter {
             for (let cue in this.answers) {
                 if (message.includes(cue)) {
                     reply = pickOne(this.answers[cue])
-                    delete this.answers[cue]
+                    this.answers[cue]
                     break
                 }
             }
