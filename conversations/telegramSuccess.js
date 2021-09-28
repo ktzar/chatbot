@@ -3,11 +3,11 @@ module.exports = {
     exitCue: /dshfkdshfls/,
     exitSentence: "un besito de tu amiga bot",
     sentences: [
-        "vale, creo que te voy a dar mi telegram|te lo has ganado",
         [
             "tienes ganas de subir el tono?",
             "donde estas ahora msmo?",
         ],
+        "vale, creo que te voy a dar mi telegram|te lo has ganado",
         [
             "mmm, dime que me harias",
             "sabes que empiezo a estar caliente?",

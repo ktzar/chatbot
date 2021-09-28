@@ -5,8 +5,8 @@ module.exports = {
     exitSentence: "mmm yo tengo 44",
     sentences: [
         ["tienes {age}?", "edad?"],
-        ["eres maduro?", "primero dime tu edad"],
-        "pero cómo de mayor eres, {age}?",
+        ["me van maduros, pero tambien jovencitos", "dime tu edad"],
+        "pero cuántos tienes, {age}?",
     ],
     answers: {
         'bot': [
@@ -14,11 +14,11 @@ module.exports = {
             ],
         'hola': [
             'holi',
-            'saludos!',
+            'hola :)',
             ],
         '?': [
             "bueno...|te digo mi edad, jiji",
-            "te digo los que tengo|pero no te asustes!",
+            "te digo mi edad|pero no te asustes!",
         ],
     } 
 }

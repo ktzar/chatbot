@@ -2,26 +2,27 @@
 module.exports = {
     name: "Intro",
     exitCue: /donde\ eres|zona|madrid|barcelona|valencia|sevilla/,
-    exitSentence: "ok, vivo en madrid, por sol",
+    exitSentence: "yo vivo en madrid, por Sol",
     sentences: [
-        ["como estas {nick}?", "te conozco?|dime", "no quiero perder tiempo|que buscas?", "me mandais muchos mensajes!"],
-        ["de donde?", "yo en madrid, te pilla bien?"],
-        ["busco charla inteligente", "no entro mucho a este chat"],
         ["qué me dices de ti?", "estas en casa?"],
+        ["como estas {nick}?", "como estas?|dime", "que buscas?|yo un ratito de charla", "me abrumais muchos mensajes!"],
+        ["de donde?", "yo en madrid, te pilla bien?|o solo quieres ciber?"],
     ],
     answers: {
         'bot': 'jaja, tu si que pareces un bot|con esas preguntas',
         'charlar': 'y que que quieres hablar, {nick}?|estoy un poco sola {nick}',
         'llamo': 'encantada {nick}|estas solito?',
         'sola': 'estoy un poco sola {nick}',
-        'solita': 'si solita, tu tambieen {nick}?',
-        ' put': 'eso se lo llamas a tu madre, vale? a ',
+        'años': 'yo tengo alrededor de 40',
+        'besos': 'me gustan los besos, si',
+        'solita': 'si solita, tu tambieen?',
+        ' put': 'eso se lo llamas a tu madre, vale?',
         'mujer?': [
             'si, soy chica',
             'si, y tu?',
             ],
         'dias': [
-            'buenos dias, ante todo educacion',
+            'que educado!|buenos dias :)',
             ],
         'noches': [
             'buenas noches a ti tambien',
@@ -43,13 +44,14 @@ module.exports = {
             'quien es? :-)',
             ],
         'hola': [
-            'hola peque',
-            'hola guapo',
+            'hola amor',
+            'hola bebe',
+            'hola cariño',
             ],
         'mo est': 'hoy un poco solita...|me haces compañia?',
         '?': [
-            "no se si contestarte...|jijij",
-            "y tu, qué buscas?",
+            "mmm|no se que decir|jijij",
+            "qué buscas tu?",
             "depende... ;-)",
             ],
     } 
