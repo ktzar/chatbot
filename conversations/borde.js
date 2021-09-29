@@ -5,8 +5,11 @@
 
 module.exports = {
     name: "Borde",
-    exitCue: /joder|mierda/,
-    exitSentence: "hasta nunca, déjame en paz",
+    exitCue: /perdona|lo siento|disculpa/,
+    exitSentence: [
+        "hasta nunca, déjame en paz",
+        "que te follen, adios"
+    ],
     sentences: [
         ["me estoy aburriendo un poco...", "bueno {nick}, me aburres un poco."],
         ["crees que esta mierda de conversacion me interesa?", "eres un mierda, jajaja"],

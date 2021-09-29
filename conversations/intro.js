@@ -2,7 +2,13 @@
 module.exports = {
     name: "Intro",
     exitCue: /donde|zona|madrid|barcelona|valencia|sevilla/,
-    exitSentence: "yo vivo en madrid, centrica",
+    exitSentence: [
+        "yo vivo en madrid, centrica",
+        "yo por Madrid",
+        "soy de madrid",
+        "por la zona de Madrid",
+        "vivo en Madrid",
+    ],
     failSentence: "ok|que más me dices de ti?",
     sentences: [
         ["qué me dices de ti?", "estas en casa?", "que me cuentas?", "me mola tu nick...", "eres amable?"],
@@ -22,8 +28,12 @@ module.exports = {
         'llamo': 'encantada {nick}|estas solito?',
         'ciber': 'pues te podria dar mi telegram...',
         'edad': 'tengo entre 35 y 40 ;-)',
+        'buscas': 'un ratito de charla...|sin limites ;-)',
         'sola': 'estoy un poco sola {nick}',
+        'jugar': 'a mi al menos sí me gustan los juegos ;-)',
+        'tetas': 'quieres saber como son mis tetitas?',
         'años': 'yo tengo algo menos de 40',
+        'te gusta': 'lo que me gusta es una conversacion|a poder ser inteligente',
         'besos': 'me gustan los besos, si',
         'sumisa': 'no soy muy sumisa, me gusta mandar, jajaj',
         'como eres': 'con curvas ;-). te gusta?',
@@ -59,9 +69,8 @@ module.exports = {
             'un poco deprisa vas tu, no?',
             'que lanzado!',
             ],
-        'toc': [
-            'quien es? :-)',
-            ],
+        'toca': 'aun no me toco...',
+        'toc': 'quien es? :-)',
         'mo est': 'hoy un poco solita...|me haces compañia?',
         '?': [
             "mmm|no se que decir|jijij",

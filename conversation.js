@@ -49,6 +49,8 @@ class Conversation {
         this.telegramSuccess.successNextSubConv = this.borde
         this.telegramSuccess.failNextSubConv = this.borde
 
+        this.borde.successNextSubConv = this.telegramRetrieval
+
         this.setNewSubConv(this.intro)
     }
 
