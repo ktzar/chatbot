@@ -1,3 +1,5 @@
+const intro = require('./intro')
+
 module.exports = {
     name: "Telegram Retrieval",
     exitCue: /\@[a-z0-9]*|[a-z]{12,}|[0-9]{6,}/,
@@ -32,5 +34,6 @@ module.exports = {
             "antes de contestar|me gustaría comprobar cómo eres",
             "quiero primero que nos oigamos|para ver que eres real|vale?",
         ],
+        ...intro.answers
     } 
 }

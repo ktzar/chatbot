@@ -52,7 +52,7 @@ class Conversation {
 
         this.borde.successNextSubConv = this.telegramRetrieval
 
-        this.setNewSubConv(this.intro)
+        this.setNewSubConv(this.telegramRetrieval)
     }
 
     setNewSubConv(subConv) {
