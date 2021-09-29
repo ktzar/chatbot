@@ -11,11 +11,12 @@ const pickOne = function (arr) {
 }
 
 const timeout = [
-    "me abres y luego no me escribes? mi no entender...",
+    "me abres para no escribirme luegoo?",
     "eooo???",
     "estas?",
     "sigues ahi?",
     "no quieres hablar?",
+    "hola???",
     "te echo de menos",
     "vaya...",
     "te caiste?"

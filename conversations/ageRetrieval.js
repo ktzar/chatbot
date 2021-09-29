@@ -24,7 +24,7 @@ module.exports = {
             ],
         '?': [
             "bueno...|te digo mi edad, jiji",
-            "te digo mi edad|pero no te asustes!",
+            "te digo mi edad|pero no te asustes! 30 y tantos|jijiji",
         ],
     } 
 }

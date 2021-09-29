@@ -72,7 +72,7 @@ class SubConversation extends EventEmitter {
                 this.emit('fail')
             }
         }
-        const replies = reply ? reply.split('|') : ["no se..."]
+        const replies = typeof reply === 'string' ? reply.split('|') : ["no se..."]
         replies.forEach((rep, index) => {
             this.timeout = setTimeout(() => {
                 this.say(rep)

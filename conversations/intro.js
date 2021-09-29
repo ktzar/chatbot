@@ -12,7 +12,7 @@ module.exports = {
     failSentence: "ok|que más me dices de ti?",
     sentences: [
         ["qué me dices de ti?", "estas en casa?", "que me cuentas?", "me mola tu nick...", "eres amable?"],
-        ["como estas {nick}?", "como estas?|eres majo?", "que buscas?|yo hablar sin limites", "muchos mensajes!"],
+        ["como estas {nick}?", "como estas?|eres de fiar?", "que buscas?|yo hablar sin limites", "muchos mensajes!"],
         ["de donde?", "yo en madrid|que buscas, ciber o real?"],
     ],
     answers: {

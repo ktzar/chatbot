@@ -14,7 +14,7 @@ module.exports = {
             "quieres saber que zona tengo calentita?",
         ],
         "estás listo? te voy a añadir",
-        "@DolceVita35, te estoy agregando",
+        "@DolceVita35, me añades tu?",
     ],
     answers: {
         'bot': [
