@@ -1,38 +1,47 @@
 require('dotenv').config()
+const IRC = require('irc-framework')
+
+const { SERVER, NICK, CHANNELS}  = process.env
+console.log({SERVER, NICK, CHANNELS})
 
 process.on('uncaughtException', function (err) {
   console.error(err.stack);
   console.log("Node NOT Exiting...");
 });
 
-const irc = require('irc')
 const Conversation = require('./conversation')
-
 const conversations = new Map()
+const channels = []
 
-const { SERVER, NICK, CHANNELS}  = process.env
 
-console.log({SERVER, NICK, CHANNELS})
-
-const client = new irc.Client(SERVER, NICK, {
-    channels: CHANNELS.split(',')
+const bot = new IRC.Client()
+bot.connect({
+    host: SERVER,
+    port: 6667,
+    nick: NICK,
 })
 
-client.addListener('message', (from, to, message) => {
-    //console.log({from, to, message})
+bot.on('registered', function () {
+    const loginChannels = CHANNELS.split(',')
+    loginChannels.forEach((ch) => {
+        channels[ch] = bot.channel(ch)
+    })
 })
 
-client.addListener('pm', (from, message) => {
-    let conv = conversations.get(from)
+
+bot.on('message', (event) => {
+    console.log(event)
+    const { nick, message } = event
+    let conv = conversations.get(nick)
     if (!conv) {
-        conv = new Conversation(from, client)
-        conversations.set(from, conv)
+        conv = new Conversation(nick, bot)
+        conversations.set(nick, conv)
     }
     conv.incoming(message)
 });
 
-client.addListener('error', function(message) {
-    console.log('error: ', message);
+bot.on('close', function(message) {
+    console.log('close: ', message);
 });
 
 process.on('beforeExit', (code) => {
