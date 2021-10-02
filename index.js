@@ -22,6 +22,7 @@ bot.connect({
 })
 
 bot.on('registered', function () {
+    console.log('Registered!')
     const loginChannels = CHANNELS.split(',')
     loginChannels.forEach((ch) => {
         channels[ch] = bot.channel(ch)
@@ -29,15 +30,16 @@ bot.on('registered', function () {
 })
 
 
-bot.on('message', (event) => {
-    console.log(event)
-    const { nick, message } = event
-    let conv = conversations.get(nick)
-    if (!conv) {
-        conv = new Conversation(nick, bot)
-        conversations.set(nick, conv)
+bot.on('privmsg', (event) => {
+    const { target, nick, message } = event
+    if (target === NICK) {
+        let conv = conversations.get(nick)
+        if (!conv) {
+            conv = new Conversation(nick, bot)
+            conversations.set(nick, conv)
+        }
+        conv.incoming(message)
     }
-    conv.incoming(message)
 });
 
 bot.on('close', function(message) {
